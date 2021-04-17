@@ -41,7 +41,4 @@ public class Cliente {
 	@Column(name = "numero_documento")
 	private String numeroDocumento;
 	
-	@Column(name = "score")
-	private int score;
-
 }

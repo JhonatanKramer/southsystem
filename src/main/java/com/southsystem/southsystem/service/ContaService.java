@@ -7,6 +7,6 @@ import com.southsystem.southsystem.model.entity.Conta;
 
 public interface ContaService {
 
-	List<Conta> buscar(Conta conta);
+	List<Conta> buscar();
 
 }

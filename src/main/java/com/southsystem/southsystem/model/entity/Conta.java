@@ -41,11 +41,10 @@ public class Conta {
 	@Enumerated(value = EnumType.STRING)
 	private ContaTipo tipo;
 	
-	@Column(name = "limite_cheque")
-	private double limiteCheque;
 	
-	@Column(name = "limite_cartao")
-	private double limiteCartao;
+	@OneToOne
+	@JoinColumn(name = "score")
+	private Credito score;
 	
 	@OneToOne
 	@JoinColumn(name = "idcliente")

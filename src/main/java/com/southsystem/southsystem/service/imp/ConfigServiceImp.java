@@ -1,10 +1,14 @@
 package com.southsystem.southsystem.service.imp;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.southsystem.southsystem.exception.Exceptions;
 import com.southsystem.southsystem.model.entity.Config;
 import com.southsystem.southsystem.model.repository.ConfigRepository;
 import com.southsystem.southsystem.service.ConfigService;
@@ -21,14 +25,27 @@ public class ConfigServiceImp implements ConfigService {
 	}
 
 	@Override
-	public Optional<Config> obterPorId(Long idconfig) {
-		return null;
+	@Transactional
+	public Config atualizar(Config config) {
+		Objects.requireNonNull(config.getIdconfig());
+		return configRepository.save(config);
 	}
 
 	@Override
-	public Config atualizar(Config config) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(readOnly = true)
+	public List<Config> buscar() {
+		return configRepository.findAll();
+	}
+	
+	@Override
+	public Config obterPorId(Long idConfig) {
+	
+		Optional<Config> ConfigOption = configRepository.findById(idConfig);
+		if (!ConfigOption.isPresent()) {
+			throw new Exceptions("Erro Id informado esta invalido ");
+		}
+		Config config = ConfigOption.get();
+		return config;
 	}
 
 }

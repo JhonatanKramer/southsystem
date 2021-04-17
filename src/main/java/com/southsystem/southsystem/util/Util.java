@@ -117,10 +117,4 @@ public class Util {
 		}
 	}
 
-	public static int calculaScore() {
-		Random gerador = new Random();
-		int score =  gerador.nextInt(9);
-
-		return score;
-	}
 }

@@ -7,7 +7,7 @@ import com.southsystem.southsystem.model.entity.Credito;
 
 public interface CreditoService {
 
-	List<Credito> buscar(Credito credito);
+	List<Credito> buscar();
 
 	Credito obterPorId(Long idCredito);
 	

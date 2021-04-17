@@ -15,7 +15,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteDtoCadastro {
+public class ClienteDto {
 	
 	private String nome;
 	private String numeroDocumento;

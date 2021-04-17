@@ -30,20 +30,17 @@ public class ClienteServiceImp implements ClienteService {
 
 	@Override
 	public Cliente cadastrar(Cliente cliente) {
-		//TODO ajustar a retirada de caracteres.
+		// TODO ajustar a retirada de caracteres.
 		cliente.setNumeroDocumento(Util.retiraCaracteresEspeciais(cliente.getNumeroDocumento()));
-		cliente.setTipo(identificaTipo(cliente.getNumeroDocumento()));		
-		cliente.setScore(Util.calculaScore());
-				
+		cliente.setTipo(identificaTipo(cliente.getNumeroDocumento()));
+
 		return clienteRepository.save(cliente);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Cliente> buscar(Cliente cliente) {
-		Example example = Example.of(cliente,
-				ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING));
-		return clienteRepository.findAll(example);
+	public List<Cliente> buscar() {
+		return clienteRepository.findAll();
 	}
 
 	@Override
@@ -52,16 +49,8 @@ public class ClienteServiceImp implements ClienteService {
 	}
 
 	@Override
-	public Cliente atualizar(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ClienteTipo identificaTipo(String numeroDocumento) {
-		
-		System.out.println(numeroDocumento);
-		
+
 		if (numeroDocumento.length() == 14) {
 			if (Util.isCNPJ(numeroDocumento)) {
 				if (ClienteNaoCadastrado(numeroDocumento)) {

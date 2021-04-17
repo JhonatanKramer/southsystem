@@ -10,8 +10,7 @@ CREATE TABLE conta(
 idconta BIGSERIAL NOT NULL PRIMARY KEY,
 agencia INT,
 tipo VARCHAR(1),
-limite_cheque FLOAT,
-limite_cartao FLOAT,
+score INT,
 idcliente BIGINT REFERENCES cliente (idcliente) NOT NULL
 );
 
@@ -55,19 +54,14 @@ CREATE OR REPLACE FUNCTION CriaConta()
 
       RETURNS trigger AS $BODY$
       BEGIN
-        INSERT INTO conta (agencia,tipo,limite_cheque, limite_cartao,idcliente)
+        INSERT INTO conta (agencia,tipo,score,idcliente)
          VALUES ( (SELECT agencia_padrao
 		     FROM config 
 		    WHERE idconfig = 1 ), 
-                                          (CASE WHEN new.tipo = 'PJ' 
-					        THEN 'E'
-                                                ELSE 'C' END) ,
-                                               (SELECT limite_cheque
-						  FROM credito 
-					         WHERE score = new.score),
-                                               (SELECT limite_cartao
-						  FROM credito 
-					         WHERE score = new.score), new.idcliente);
+                                 (CASE WHEN new.tipo = 'PJ' 
+					                   THEN 'E'
+                                       ELSE 'C' END) , (SELECT round(CAST (random()*9 AS NUMERIC),0)),
+									   new.idcliente);
 
          RETURN NULL;
       END;$BODY$

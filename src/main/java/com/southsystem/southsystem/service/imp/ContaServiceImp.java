@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.southsystem.southsystem.model.entity.Cliente;
 import com.southsystem.southsystem.model.entity.Conta;
@@ -18,19 +19,17 @@ import com.southsystem.southsystem.service.CreditoService;
 public class ContaServiceImp implements ContaService {
 
 	private ContaRepository contaRepository;
-	private CreditoService creditoService;
 
 	@Autowired
-	public ContaServiceImp(ContaRepository contaRepository, CreditoService creditoService) {
+	public ContaServiceImp(ContaRepository contaRepository) {
 		super();
 		this.contaRepository = contaRepository;
-		this.creditoService = creditoService;
 	}
 
 	@Override
-	public List<Conta> buscar(Conta conta) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(readOnly = true)
+	public List<Conta> buscar() {
+		return contaRepository.findAll();
 	}
 
 

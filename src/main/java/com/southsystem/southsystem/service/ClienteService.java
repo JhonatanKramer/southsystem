@@ -10,17 +10,14 @@ public interface ClienteService {
 
 	Cliente cadastrar(Cliente cliente);
 
-	List<Cliente> buscar(Cliente cliente);
+	List<Cliente> buscar();
 
 	Optional<Cliente> obterPorId(Long idcliente);
-	
-	Cliente atualizar(Cliente cliente);
-	
+
 	ClienteTipo identificaTipo(String numeroDocumento);
-	
-	boolean ClienteNaoCadastrado (String numeroDocumento);
-	
+
+	boolean ClienteNaoCadastrado(String numeroDocumento);
+
 	Cliente buscaPorDocumento(String numeroDocumento);
-	
 
 }
