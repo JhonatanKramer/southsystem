@@ -1,0 +1,40 @@
+CREATE TABLE cliente(
+idcliente BIGSERIAL NOT NULL PRIMARY KEY,
+tipo VARCHAR(2),
+numero_documento INT,
+score INT
+);
+
+CREATE TABLE conta(
+idconta BIGSERIAL NOT NULL PRIMARY KEY,
+agencia INT,
+tipo VARCHAR(1),
+limite_cheque FLOAT,
+limite_cartao FLOAT
+);
+
+
+CREATE TABLE credito(
+score BIGSERIAL NOT NULL PRIMARY KEY,
+limite_cheque FLOAT,
+limite_cartao FLOAT
+);
+
+
+CREATE TABLE config(
+idconfig BIGSERIAL NOT NULL PRIMARY KEY,
+agencia_padrao INT
+);
+
+
+INSERT INTO config VALUES(1,45793);
+
+INSERT INTO credito VALUES(0,0.00,0.00);
+INSERT INTO credito VALUES(2,1000.00,200.00);
+INSERT INTO credito VALUES(3,1000.00,200.00);
+INSERT INTO credito VALUES(4,1000.00,200.00);
+INSERT INTO credito VALUES(5,1000.00,200.00);
+INSERT INTO credito VALUES(6,2000.00,2000.00);
+INSERT INTO credito VALUES(7,2000.00,2000.00);
+INSERT INTO credito VALUES(8,2000.00,2000.00);
+INSERT INTO credito VALUES(9,5000.00,15000.00);
