@@ -2,10 +2,19 @@ package com.southsystem.southsystem.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.southsystem.southsystem.model.enums.ContaTipo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,12 +38,17 @@ public class Conta {
 	private int agencia;
 	
 	@Column(name = "tipo")
-	private String tipo;
+	@Enumerated(value = EnumType.STRING)
+	private ContaTipo tipo;
 	
 	@Column(name = "limite_cheque")
 	private double limiteCheque;
 	
 	@Column(name = "limite_cartao")
 	private double limiteCartao;
+	
+	@OneToOne
+	@JoinColumn(name = "idcliente")
+	private Cliente cliente; 	
 
 }
