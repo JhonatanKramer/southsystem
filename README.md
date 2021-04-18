@@ -1,5 +1,13 @@
 # Sistema Bancario
 
+- lembre de alterar o arquivo.proprieties base criada como southsystem
+- Utilizado banco de dados postgres
+- Tem o scrip do banco de dados e o dump na pasta BD
+- Configurado Swegger para facilitar os testes de AndPoint
+http://localhost:8080/swagger-ui.html#/
+
+
+
 ## Desenvolva um sistema que seguirá o seguinte fluxo:
 
 ### 1. Cadastrar uma pessoa com os seguintes dados:

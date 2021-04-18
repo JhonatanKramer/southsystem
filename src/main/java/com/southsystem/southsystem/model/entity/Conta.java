@@ -30,8 +30,8 @@ import lombok.NoArgsConstructor;
 public class Conta {
 	
 	@Id
-	@Column(name = "idcliente")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idconta")
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idconta;
 	
 	@Column(name = "agencia")

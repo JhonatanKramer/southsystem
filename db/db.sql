@@ -6,20 +6,20 @@ numero_documento TEXT,
 score INT
 );
 
+CREATE SEQUENCE idconta_seq
+    INCREMENT 1
+    MINVALUE 100000
+	MAXVALUE 999999999999999
+    START 100000;
+
 CREATE TABLE conta(
-idconta BIGSERIAL NOT NULL PRIMARY KEY,
+idconta BIGINT DEFAULT nextval('idconta_seq'),
 agencia INT,
 tipo VARCHAR(1),
 score INT,
 idcliente BIGINT REFERENCES cliente (idcliente) NOT NULL
 );
 
-CREATE SEQUENCE idconta
-    INCREMENT 1
-    MINVALUE 100000
-    MAXVALUE 9223372036854775807
-    START 100000
-    CACHE 1;
 
 
 CREATE TABLE credito(
