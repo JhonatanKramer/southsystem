@@ -12,6 +12,7 @@ import com.southsystem.southsystem.exception.Exceptions;
 import com.southsystem.southsystem.model.entity.Config;
 import com.southsystem.southsystem.model.repository.ConfigRepository;
 import com.southsystem.southsystem.service.ConfigService;
+import com.southsystem.southsystem.util.Util;
 
 @Service
 public class ConfigServiceImp implements ConfigService {

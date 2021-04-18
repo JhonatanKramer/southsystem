@@ -9,10 +9,10 @@ public class Util {
 	public static String retiraCaracteresEspeciais(String palavra) {
 		String passa = palavra;
 
-		passa = passa.replaceAll("[^0-9.]", "");
+		passa = passa.replaceAll("[^0-9]+", "");
 		passa = passa.trim();
 
-		return palavra;
+		return passa;
 	}
 
 	public static boolean isCNPJ(String CNPJ) {

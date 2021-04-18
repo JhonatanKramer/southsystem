@@ -17,6 +17,7 @@ import com.southsystem.southsystem.exception.Exceptions;
 import com.southsystem.southsystem.model.entity.Config;
 import com.southsystem.southsystem.model.entity.Credito;
 import com.southsystem.southsystem.service.ConfigService;
+import com.southsystem.southsystem.util.Util;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -47,7 +48,7 @@ public class ConfigController {
 			config.setIdconfig(idConfig);
 			configService.atualizar(config);
 			return ResponseEntity.ok(config);
-		} catch (Exceptions e) {
+		} catch (Exceptions e) {			
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 		

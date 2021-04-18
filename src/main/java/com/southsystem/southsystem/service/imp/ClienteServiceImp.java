@@ -29,8 +29,7 @@ public class ClienteServiceImp implements ClienteService {
 	}
 
 	@Override
-	public Cliente cadastrar(Cliente cliente) {
-		// TODO ajustar a retirada de caracteres.
+	public Cliente cadastrar(Cliente cliente) {		
 		cliente.setNumeroDocumento(Util.retiraCaracteresEspeciais(cliente.getNumeroDocumento()));
 		cliente.setTipo(identificaTipo(cliente.getNumeroDocumento()));
 
