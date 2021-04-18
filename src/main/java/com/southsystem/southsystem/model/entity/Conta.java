@@ -31,7 +31,6 @@ public class Conta {
 	
 	@Id
 	@Column(name = "idconta")
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idconta;
 	
 	@Column(name = "agencia")
