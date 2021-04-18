@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.southsystem.southsystem.model.entity.Conta;
 import com.southsystem.southsystem.service.ContaService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
+@Api(value = "Conta")
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/conta")
@@ -22,6 +25,7 @@ public class ContaController {
 	
 	private final ContaService contaService;
 	
+	@ApiOperation(value = "Busca todas as contas")
 	@GetMapping("/buscar")
 	public ResponseEntity buscar() {
 		List<Conta> conta = contaService.buscar();

@@ -18,8 +18,11 @@ import com.southsystem.southsystem.model.entity.Config;
 import com.southsystem.southsystem.model.entity.Credito;
 import com.southsystem.southsystem.service.ConfigService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
+@Api(value = "Configurações")
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/config")
@@ -28,13 +31,14 @@ public class ConfigController {
 	
 	private final ConfigService configService ;
 
-	
+	@ApiOperation(value = "busca agencia cadastrada")
 	@GetMapping("/buscar")
 	public ResponseEntity buscar() {
 		List<Config> config = configService.buscar();
 		return ResponseEntity.ok(config);
 	}	
 	
+	@ApiOperation(value = "atualiza configuracao de agencia")
 	@PutMapping("atualizar/{idConfig}")
 	public ResponseEntity atualizar(@PathVariable("idConfig") Long idConfig, @RequestBody ConfigDto dto) {		
 		try {			

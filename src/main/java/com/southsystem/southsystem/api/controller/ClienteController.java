@@ -18,8 +18,11 @@ import com.southsystem.southsystem.exception.Exceptions;
 import com.southsystem.southsystem.model.entity.Cliente;
 import com.southsystem.southsystem.service.ClienteService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
+@Api(value = "Cliente")
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/cliente")
@@ -27,7 +30,8 @@ import lombok.RequiredArgsConstructor;
 public class ClienteController {
 
 	private final ClienteService clienteService;
-
+	
+	@ApiOperation(value = "Cadastra cliente no banco de dados")
 	@PostMapping("/cadastrar")
 	public ResponseEntity cadastrar(@RequestBody ClienteDto dto) {
 
@@ -41,7 +45,8 @@ public class ClienteController {
 		}
 
 	}
-
+	
+	@ApiOperation(value = "busca todos cliente no banco de dados")
 	@GetMapping("/buscar")
 	public ResponseEntity buscar() {
 		List<Cliente> clientes = clienteService.buscar();

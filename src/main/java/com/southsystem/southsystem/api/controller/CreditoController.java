@@ -18,8 +18,11 @@ import com.southsystem.southsystem.exception.Exceptions;
 import com.southsystem.southsystem.model.entity.Credito;
 import com.southsystem.southsystem.service.CreditoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
+@Api(value = "creditos / score")
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/credito")
@@ -28,12 +31,14 @@ public class CreditoController {
 
 	private final CreditoService creditoService;
 
+	@ApiOperation(value = "Busca todas os scores")
 	@GetMapping("/buscar")
 	public ResponseEntity buscar() {
 		List<Credito> credito = creditoService.buscar();
 		return ResponseEntity.ok(credito);
 	}
 
+	@ApiOperation(value = "Atualiza score")
 	@PutMapping("atualizar/{idCredito}")
 	public ResponseEntity atualizar(@PathVariable("idCredito") Long idCredito, @RequestBody CreditoDto dto) {		
 		try {			
