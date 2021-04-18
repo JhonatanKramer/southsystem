@@ -13,7 +13,7 @@ CREATE SEQUENCE idconta_seq
     START 100000;
 
 CREATE TABLE conta(
-idconta BIGINT DEFAULT nextval('idconta_seq'),
+idconta BIGINT PRIMARY KEY DEFAULT nextval('idconta_seq'),
 agencia INT,
 tipo VARCHAR(1),
 score INT,

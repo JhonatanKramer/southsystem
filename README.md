@@ -1,11 +1,13 @@
 # Sistema Bancario
 
-- lembre de alterar o arquivo.proprieties base criada como southsystem
+- lembre de alterar o arquivo.proprieties, pois o banco foi criado como southsystem
 - Utilizado banco de dados postgres
 - Tem o scrip do banco de dados e o dump na pasta BD
-- Configurado Swegger para facilitar os testes de AndPoint
+- Configurado Swegger para facilitar os acessos aos AndPoint
 http://localhost:8080/swagger-ui.html#/
-
+- Criado teste unitario e de integracao para o cliente, poderia ter utilizado Mokito para facilitar
+- Para os testes foi utilizado um banco de dados em memoria (H
+- Sim o Cadastro de conta bancaria foi feito por gatilho direto no banco de dados
 
 
 ## Desenvolva um sistema que seguirá o seguinte fluxo:
